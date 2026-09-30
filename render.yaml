@@ -1,0 +1,43 @@
+services:
+  - type: web
+    name: cloud-assignment-portal
+    runtime: python
+    plan: free
+    buildCommand: "npm ci --prefix frontend && npm run build --prefix frontend && pip install -r backend/requirements.txt"
+    startCommand: "cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT"
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.10
+      - key: FIREBASE_PROJECT_ID
+        sync: false
+      - key: FIREBASE_SERVICE_ACCOUNT_JSON
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: SUPABASE_STORAGE_BUCKET
+        value: assignment-submissions
+      - key: LOCAL_STORAGE_DIR
+        value: ""
+      - key: ALLOW_LATE_SUBMISSIONS
+        value: "true"
+      - key: ALLOW_RESUBMISSIONS
+        value: "true"
+      - key: MAX_UPLOAD_BYTES
+        value: "16777216"
+      - key: VITE_FIREBASE_API_KEY
+        sync: false
+      - key: VITE_FIREBASE_AUTH_DOMAIN
+        sync: false
+      - key: VITE_FIREBASE_PROJECT_ID
+        sync: false
+      - key: VITE_FIREBASE_STORAGE_BUCKET
+        sync: false
+      - key: VITE_FIREBASE_MESSAGING_SENDER_ID
+        sync: false
+      - key: VITE_FIREBASE_APP_ID
+        sync: false
+      - key: VITE_USE_FIREBASE_EMULATORS
+        value: "false"

@@ -1,0 +1,11 @@
+{
+  "firestore": {"rules":"cloud/firestore/firestore.rules","indexes":"cloud/firestore/firestore.indexes.json"},
+  "storage": {"rules":"cloud/storage/storage.rules"},
+  "functions": [{"source":"cloud/functions","codebase":"default","runtime":"nodejs22"}],
+  "hosting": {
+    "public":"frontend/dist",
+    "ignore":["firebase.json","**/.*","**/node_modules/**"],
+    "rewrites":[{"source":"/api/**","run":{"serviceId":"assignment-api","region":"asia-south1"}},{"source":"**","destination":"/index.html"}]
+  },
+  "emulators": {"auth":{"port":9099},"firestore":{"port":8080},"functions":{"port":5001},"pubsub":{"port":8085},"ui":{"enabled":true,"port":4000}}
+}

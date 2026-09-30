@@ -1,0 +1,6 @@
+{
+  "indexes": [
+    {"collectionGroup":"submissions","queryScope":"COLLECTION","fields":[{"fieldPath":"assignmentId","order":"ASCENDING"},{"fieldPath":"studentUid","order":"ASCENDING"}]}
+  ],
+  "fieldOverrides": []
+}

@@ -1,0 +1,8 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // All application data access goes through the FastAPI service after Firebase ID-token checks.
+    // Admin SDK calls from the API and Cloud Functions bypass these client rules.
+    match /{document=**} { allow read, write: if false; }
+  }
+}
