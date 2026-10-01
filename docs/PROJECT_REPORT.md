@@ -92,6 +92,4 @@ The implementation follows the selected React/Firebase architecture and provides
 
 Next additions include enrollment management, notifications, rubric grading, malware scanning, access audit logs, pagination, signed direct uploads, better backup/restore automation, analytics visualization, accessibility review, and production load/security testing. This project demonstrates a managed-cloud application architecture that keeps user identity, relational-style metadata, and large file objects in suitable services while enforcing access through a trusted API.
 
-## Resume and LinkedIn summary
 
-Built a React, FastAPI, and Firebase student assignment portal with token-verified RBAC, private file submissions, grading, and feedback. Implemented Firestore data workflows, Storage access mediation, deadline/version logic, Cloud Functions analytics, Firebase rules, and automated CI checks.
